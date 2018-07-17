@@ -22,6 +22,18 @@ DHT dht(DHTPIN, DHTTYPE);
 
 long previousMillis;
 
+
+/*Pin connection Arduino Mega-Enc28j60*/
+//Enc28j60   Arduino Mega 2560
+//GND       GND
+//3.3       3.3V
+//SO        Pin50
+//SI        Pin51
+//SCK       Pin52
+//CS        Pin53
+/*fin*/
+
+
 void setup() {
 pinMode(4,INPUT_PULLUP);
 pinMode(5,INPUT_PULLUP);
