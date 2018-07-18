@@ -40,13 +40,22 @@ pinMode(5,INPUT_PULLUP);
 pinMode(6,INPUT_PULLUP);
   // setup serial communication
   //Serial.begin(9600);
-  // setup ethernet communication using DHCP
-  if(Ethernet.begin(mac) == 0) {
+
   //setup ethernet communication using IP fixed.
   //Ethernet.begin(mac,ipfixed);
-    //Serial.println(F("Ethernet configuration using DHCP failed"));
+
+  
+  // setup ethernet communication using DHCP
+  if(Ethernet.begin(mac) == 0) {
     for(;;);
   }
+
+  //en algunos sitios dice que para mega se tiene que llamar así pero con la librería EhernetCard, cosa que no funciona con MQTT
+  //if (ethClient.begin(sizeof Ethernet::buffer, mac, 53) == 0) {
+  //  for(;;);
+  //}
+
+  
   // setup mqtt client
   mqttClient.setClient(ethClient);
   mqttClient.setServer(mqtt_server,1883);
