@@ -1,6 +1,8 @@
 /**
- * Programa para lectura de sensor DHT con arduino Meta y envio de mensajes MQTT broker.
- * fuente de inspiracion http://npanel.project.free.fr/wp/?p=607
+ * Programa para lectura de sensor DHT con arduino Meta y envio de mensajes MQTT broker
+ * a traves de la ethernet shield ENC28J60. 
+ * Tambien válido para modulo HanRun HR911105A
+ * Fuente de inspiracion http://npanel.project.free.fr/wp/?p=607
  */
 #include <DHT.h>
 #include <UIPEthernet.h>
