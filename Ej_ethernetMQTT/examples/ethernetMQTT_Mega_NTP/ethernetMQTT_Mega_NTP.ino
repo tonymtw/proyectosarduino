@@ -11,7 +11,7 @@
 
 
 #define CLIENT_ID       "UnoMQTT"
-#define INTERVAL        30000 // 30 sec delay between publishing
+#define INTERVAL        10000 // 10 sec delay between publishing
 #define DHTPIN          3
 #define DHTTYPE         DHT11
 
@@ -97,6 +97,7 @@ void loop()
   //Chequear intervalo de envio de información.
   if(millis() - previousMillis > INTERVAL) {
     sendData();
+    sendNTPData();
     previousMillis = millis();
   }
    mqttClient.loop();
@@ -114,7 +115,7 @@ void sendData() {
   }
 }
 
-void getNTPData() {
+void sendNTPData() {
   char msgBuffer[20];
   Udp.begin(localPort);
   sendNTPpacket(timeServer);
